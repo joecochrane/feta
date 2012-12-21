@@ -115,7 +115,7 @@ def self.scrapeone()
 		end	
 		pricef = price.to_f + shipping.to_f	
 		prices = pricef.round(2).to_s
-		@cheese.product_id = '3'
+		@cheese.product_id = '6'
 		@cheese.price = prices
 		
 		@cheese.time = time.to_s
@@ -155,7 +155,7 @@ def self.scrapeone()
 		end	
 		pricef = price.to_f + shipping.to_f	
 		prices = pricef.round(2).to_s
-		@cheese.product_id = '3'
+		@cheese.product_id = '9'
 		@cheese.price = prices
 		
 		@cheese.time = time.to_s

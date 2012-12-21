@@ -23,7 +23,7 @@
 				-if cheese.product_id == psplit[i].to_i
 					-company = cheese.product.company
 					-note = cheese.product.note
-					-name = cheese.product.note
+					-name = cheese.product.name
 					-cprice = cprice + cheese.price + ','
 					-ctime = ctime + cheese.time + ','
 			.blank
@@ -36,7 +36,6 @@
 			-comp[i] = company
 			-notearray[i] = note.to_s
 			-namearray[i] = name.to_s
-			%span= 'Note ' + notearray[i]
 		#chart1
 			%span Placeholder1
 			%br
