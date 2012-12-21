@@ -1,0 +1,47 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$pink : #FFC0CB;
+$green: #33FF33;
+$grey: #999999;
+$white: #ffffff;
+$black: #000000;
+$big: 24px;
+$bigtitle: 30px;
+
+a {text-decoration: none;}
+a:link {color: $black;}
+a:visited {color: $black;}
+a:hover {color: $grey; background-color: $pink;}
+a:active {color: $green;}
+
+#header { background-color: '#333333'; width: 700px; height: 100px; }
+#logo {position: absolute; left: 100px; top: 10px; }
+
+#strip {width: 900px; height: 30px; background-color: $white; font-family: Amaze; font-size: 12px;}
+#signup {position: relative; float: left;  background-color: "#000000"; margin: 5px; }
+#signindiv {position: relative; float: left;  margin: 5px;}
+#askbutton {position: absolute; top: 2px; left: 120px;}
+#recentbutton {position: absolute; top: 2px; left: 230px;}
+#welcome {position: relative; float: left; margin-top: 5px; margin-right: 0px;}
+#stripusername {position: relative; float: left; margin: 5px;}
+#stripsignout {position: relative; float: left; margin: 5px;}
+#stripadminlistusers {position: relative; float: left; margin: 5px;}
+#stripeditquestion {position: relative; float: left; margin: 5px;}
+#striprecentquestions {position: relative; float: left; margin: 5px;}
+#stripask {position: relative; float: left; margin: 5px;}
+#stripabout {position: relative; float: left; margin: 5px;}
+#stripcontact {position: relative; float: left; margin: 5px;}
+#stripmain {position: relative; float: left; margin: 5px;}
+#stripselect {position: relative; float: left; margin-top: 5px; margin-left: 30px;}
+
+#chart1 {color: '#0000FF'; background-color: $white; width: 900px; height: 500px; }
+#chart2 {color: '#0000FF'; background-color: $white; width: 600px; height: 300px; }
+#chart3 {color: '#0000FF'; background-color: $white; width: 600px; height: 300px; }
+
+#contacthead {position: relative; font-size: 24px; margin: 30px;}
+#email {position: relative; font-size: 18px; margin: 20px;}
+																		
+.blank {display: none;}

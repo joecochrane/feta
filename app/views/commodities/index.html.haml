@@ -1,0 +1,27 @@
+%h1 Listing commodities
+
+%table
+  %tr
+    %th Id
+    %th Product
+    %th Time
+    %th Price
+    %th Name
+    %th
+    %th
+    %th
+
+  - @commodities.each do |commodity|
+    %tr
+      %td= commodity.id
+      %td= commodity.product_id
+      %td= commodity.time
+      %td= commodity.price
+      %td= commodity.name
+      %td= link_to 'Show', commodity
+      %td= link_to 'Edit', edit_commodity_path(commodity)
+      %td= link_to 'Destroy', commodity, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Commodity', new_commodity_path

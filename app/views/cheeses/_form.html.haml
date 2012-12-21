@@ -1,0 +1,20 @@
+= form_for @cheese do |f|
+  - if @cheese.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cheese.errors.count, "error")} prohibited this cheese from being saved:"
+      %ul
+        - @cheese.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .field
+    = f.label :product_id
+    = f.number_field :product_id
+  .field
+    = f.label :time
+    = f.text_field :time
+  .field
+    = f.label :price
+    = f.text_field :price
+  .actions
+    = f.submit 'Save'

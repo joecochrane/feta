@@ -1,0 +1,17 @@
+#strip		
+	-if !(frompage == 'main')
+		#stripmain
+			= link_to "Main", index_path
+	
+	-if !(frompage == 'contact')
+		#stripcontact
+			= link_to "Contact", contact_path
+	
+	-if !(frompage == 'contact') 	
+		#stripselect
+			= form_tag index_path, :method => "post" do
+				= select_tag "part", options_for_select([ "French Menu Cookbook", "Plenty", "Ruhlman's Twenty" ], "French Menu Cookbook")
+				= submit_tag "Select", :name => nil
+			
+
+	

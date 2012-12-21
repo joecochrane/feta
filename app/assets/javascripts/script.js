@@ -1,0 +1,52 @@
+$(document).ready(function() {
+	$.ajaxSetup({cache: false });
+	$('#header').css("background", "#88DD88")
+	var d0 = [];var d1 = [];var d2 = [];var d3 = [];var d4 = [];var d5 = [];var d6 = [];var d7 = [];var d8 = []; var d9 = [];
+	var legendprice	= [];
+	leng = $('#leng').text();
+	for (i=0; i<leng; i++) {
+		price = $('#cprice_' + i).text();
+		
+		ps = price.split(',');
+		legendprice[i] = ps[0];
+		date = $('#ctime_' + i).text();
+		ds = date.split(',');
+		console.log('date split 0 ' + ds[0] + ' date split 1 ' + ds[1])
+		for (j=0; j<ds.length; j++) {
+			if (i == 0) {d0.push([ds[j]+'000', ps[j]]) ;  }
+			if (i == 1) {d1.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 2) {d2.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 3) {d3.push([ds[j]+'000', ps[j]]) ;  }
+			if (i == 4) {d4.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 5) {d5.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 6) {d6.push([ds[j]+'000', ps[j]]) ;  }
+			if (i == 7) {d7.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 8) {d8.push([ds[j]+'000', ps[j]])  ;  }
+			if (i == 9) {d9.push([ds[j]+'000', ps[j]])  ;  }
+		}			
+		
+	}
+
+		var options = {
+					lines: { show: true, steps: true },
+					points: { show: true },
+					colors: ["#0000FF","#00FF00","#FF0000","#000000", "#888888", "#AAAA00", "#00AAAA", "#880088","#888800","#880088"] ,			
+					xaxis: {mode: "time",ticks: 3,
+				 timeformat: "%m/%d"},
+				yaxis: {},
+				legend: { position: 'nw' }
+    };	 
+			$.plot($("#chart1"), [ { data: d0, label: $('#company_0').text() + ' ' + legendprice[0] },
+									{ data: d1, label: $('#company_1').text() + ' ' + legendprice[1] },
+									{ data: d2, label: $('#company_2').text() + ' ' + legendprice[2] },
+									{ data: d3, label: $('#company_3').text() + ' ' + legendprice[3] },
+									{ data: d4, label: $('#company_4').text() + ' ' + legendprice[4] },
+									{ data: d5, label: $('#company_5').text() + ' ' + legendprice[5] },
+									{ data: d6, label: $('#company_6').text() + ' ' + legendprice[6] },
+									{ data: d7, label: $('#company_7').text() + ' ' + legendprice[7] },
+									{ data: d8, label: $('#company_8').text() + ' ' + legendprice[8] },
+									{ data: d9, label: $('#company_9').text() + ' ' + legendprice[9] }
+								
+								], options );		 			 
+		
+	})

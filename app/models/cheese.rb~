@@ -1,0 +1,300 @@
+class Cheese < ActiveRecord::Base
+	
+  attr_accessible :id, :price, :product_id, :time
+
+	require 'nokogiri'
+	require 'open-uri'
+
+	belongs_to :product
+
+def self.item()
+	item = {"French Menu Cookbook" => "1,2,3", "Plenty" => "4,5,6", "Ruhlman's Twenty" => "7,8,9"}
+end
+
+
+
+	
+	
+	
+	
+
+
+def self.scrapeone()
+	found = false
+	error = false
+	
+	time = Time.now.utc.to_i
+
+
+
+
+=begin
+
+		@cheese = Cheese.new
+		url =
+		doc = Nokogiri::HTML(open(url))
+		price =
+		@cheese.product_id = ''
+		@cheese.price = price
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'price ' + price
+
+
+
+		@cheese = Cheese.new
+		url =  "http://product.half.ebay.com/The-French-Menu-Cookbook-by-Richard-Olney-1985-Hardcover/1305581&tg=info"
+		doc = Nokogiri::HTML(open(url))
+		price = doc.at_css(".pdpbestpricestyle").text.delete('$')
+		pricef = price.to_f
+		shippingf = 3.99
+		pricef = pricef + shippingf
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '1'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'half price ' + prices
+
+
+
+
+		@cheese = Cheese.new
+		url = "http://www.abebooks.com/servlet/SearchResults?isbn=0879235799&sts=t"
+		doc = Nokogiri::HTML(open(url))
+		puts 'doc'
+		#puts doc
+		price = doc.at_css("#main :nth-child(4) .price").text.delete('US$').strip
+		shipping = doc.at_css("#main :nth-child(4) .shipping").text
+		if shipping.include? "FREE"
+			shipping = '0'
+		else
+			shipping = shipping.delete('Shipping:US$').strip
+		end	
+		pricef = price.to_f + shipping.to_f	
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '3'
+		@cheese.price = prices
+		
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'abes price ' + prices
+		puts 'abes shipping ' + shipping
+
+=end
+
+		@cheese = Cheese.new
+		url =  "http://product.half.ebay.com/_W0QQprZ99626373"
+		doc = Nokogiri::HTML(open(url))
+		price = doc.at_css(".pdpbestpricestyle").text.delete('$')
+		pricef = price.to_f
+		shippingf = 3.99
+		pricef = pricef + shippingf
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '4'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'Plenty half price ' + prices
+
+		@cheese = Cheese.new
+		url = "http://www.abebooks.com/servlet/SearchResults?isbn=1452101248&sts=t&x=58&y=15"
+		doc = Nokogiri::HTML(open(url))
+		puts 'doc'
+		#puts doc
+		price = doc.at_css("#main :nth-child(4) .price").text.delete('US$').strip
+		shipping = doc.at_css("#main :nth-child(4) .shipping").text
+		if shipping.include? "FREE"
+			shipping = '0'
+		else
+			shipping = shipping.delete('Shipping:US$').strip
+		end	
+		pricef = price.to_f + shipping.to_f	
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '3'
+		@cheese.price = prices
+		
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'abes price ' + prices
+		puts 'abes shipping ' + shipping
+
+
+		@cheese = Cheese.new
+		url =  "http://product.half.ebay.com/_W0QQprZ102761531"
+		doc = Nokogiri::HTML(open(url))
+		price = doc.at_css(".pdpbestpricestyle").text.delete('$')
+		pricef = price.to_f
+		shippingf = 3.99
+		pricef = pricef + shippingf
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '7'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'Ruhlman half price ' + prices
+
+
+		@cheese = Cheese.new
+		url = "http://www.abebooks.com/servlet/SearchResults?isbn=0811876438&sts=t&x=51&y=14"
+		doc = Nokogiri::HTML(open(url))
+		puts 'doc'
+		#puts doc
+		price = doc.at_css("#main :nth-child(4) .price").text.delete('US$').strip
+		shipping = doc.at_css("#main :nth-child(4) .shipping").text
+		if shipping.include? "FREE"
+			shipping = '0'
+		else
+			shipping = shipping.delete('Shipping:US$').strip
+		end	
+		pricef = price.to_f + shipping.to_f	
+		prices = pricef.round(2).to_s
+		@cheese.product_id = '3'
+		@cheese.price = prices
+		
+		@cheese.time = time.to_s
+	#	@cheese.save
+		
+		puts 'abes price ' + prices
+		puts 'abes shipping ' + shipping
+
+=begin
+	@cheese = Cheese.new
+	url = "http://www.boltonhardware.com/category/%3Cfont-color=ff0000%3E-door-hardware-%3C-font%3E/door-hinges/stainless-steel-hinges/4-inch-hinges/4-x-4-x25mm-stainless-steel-hinge.php"
+
+		doc = Nokogiri::HTML(open(url))
+
+		price = doc.at_css(".main-content td:nth-child(2) td").text.delete('$').to_s
+		
+		@cheese.product_id = '10'
+		@cheese.price = price
+		@cheese.time = time.to_s
+		@cheese.save
+		puts 'Bolton price ' + price
+
+
+		@cheese = Cheese.new
+		url = "http://www.aliexpress.com/item/Door-Hinge-Stainless-steel-4-inch-hinge-The-price-of-the-two-10-pay-since-sell/692847465.html"
+		doc = Nokogiri::HTML(open(url))
+		doubleprice = doc.at_css("#sku-price").text.delete('$')
+		price = doubleprice.to_f/2
+		prices = price.round(2).to_s
+		@cheese.product_id = '4'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+		@cheese.save
+		puts 'doubleprice ' + doubleprice
+		puts 'aliexpress 324360 price ' + prices
+
+
+
+
+
+		@cheese = Cheese.new
+		url = "http://www.aliexpress.com/item/Stainless-Steel-SUS304-3mm-Thickness-Door-Hinges-Soundproofing-Silent-Hinges-2pcs-per-pair-with-8-screw/699725487.html?s=p"
+		doc = Nokogiri::HTML(open(url))
+		quadprice = doc.at_css("#sku-price").text.delete('$')
+		price = quadprice.to_f/4
+		prices = price.round(2).to_s
+		@cheese.product_id = '5'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+		@cheese.save
+		
+		puts 'Ultisolar price ' + prices
+
+
+
+		@cheese = Cheese.new
+		url = "http://www.aliexpress.com/item/10-pairs-lot-VIBORG-304-Stainless-Steel-Door-Hinges-FREE-SHIPPIN/641719853.html"
+		doc = Nokogiri::HTML(open(url))
+		twentyprice = doc.at_css("#sku-price").text.delete('$')
+		price = twentyprice.to_f/20
+		prices = price.round(2).to_s
+		price =
+		@cheese.product_id = '6'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+		@cheese.save
+		
+		puts 'Viborg price ' + prices
+
+
+
+		@cheese = Cheese.new
+		par = ''
+		url = "http://hingeoutlet.com/stainless_steel_hinges.htm"
+		doc = Nokogiri::HTML(open(url))
+		doc.css("tr td").each do |node|
+			node.css("font").each do |item|
+				if (item.text.include? '34326') && (!node.text.downcase.include? 'ball bear')
+					par = node.text
+				end
+			end
+		end
+		x = par.index '$'
+		doubleprice = par[x..x+5].delete('$')
+		price = doubleprice.to_f/2
+		prices = price.round(2).to_s
+		@cheese.product_id = '7'
+		@cheese.price = prices
+		@cheese.time = time.to_s
+		@cheese.save
+		
+		puts 'price hinge outlet ' + prices
+
+
+
+		@cheese = Cheese.new
+		url = "http://www.reidsupply.com/sku/HG-7023/"
+		doc = Nokogiri::HTML(open(url))
+		price = doc.at_css('#detailPrice').text.delete!('Price:$(EA)')
+		@cheese.product_id = '8'
+		@cheese.price = price
+		@cheese.time = time.to_s
+		@cheese.save
+		
+		puts 'Reid 7023 price ' + price
+
+		@cheese = Cheese.new
+		url = "http://www.reidsupply.com/sku/HG-7025/"
+		doc = Nokogiri::HTML(open(url))
+		price = doc.at_css('#detailPrice').text.delete!('Price:$(EA)')
+		@cheese.product_id = '9'
+		@cheese.price = price
+		@cheese.time = time.to_s
+		@cheese.save
+		
+		puts 'Reid 7025 price ' + price
+
+
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar'
+		puts 'bar2'
+		counter = 0
+		
+	
+		return error
+
+
+
+	# end						# item
+	#end						# node
+=end
+end							# scrape one
+end							# cheese.rb

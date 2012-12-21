@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Id:
+  = @cheese.id
+%p
+  %b Product:
+  = @cheese.product_id
+%p
+  %b Time:
+  = @cheese.time
+%p
+  %b Price:
+  = @cheese.price
+
+= link_to 'Edit', edit_cheese_path(@cheese)
+\|
+= link_to 'Back', cheeses_path

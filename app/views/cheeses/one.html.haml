@@ -1,0 +1,9 @@
+%span Cheese One
+%br
+%br
+-if @cheeseerror
+	%span error
+-else
+	=link_to "Admin", "/admin"
+%br
+=link_to "List Cheeses", "index_cheese_path"

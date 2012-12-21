@@ -1,0 +1,8 @@
+%h1 Admin
+%br
+%br
+= link_to 'New Commodity', new_commodity_path
+%br
+=link_to "Link One", "/cheese1"
+%br
+=link_to "Link Two", "/cheese2"

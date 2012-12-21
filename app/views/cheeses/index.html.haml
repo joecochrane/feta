@@ -1,0 +1,25 @@
+%h1 Listing cheeses
+
+%table
+  %tr
+    %th Id
+    %th Product
+    %th Time
+    %th Price
+    %th
+    %th
+    %th
+
+  - @cheeses.each do |cheese|
+    %tr
+      %td= cheese.id
+      %td= cheese.product_id
+      %td= cheese.time
+      %td= cheese.price
+      %td= link_to 'Show', cheese
+      %td= link_to 'Edit', edit_cheese_path(cheese)
+      %td= link_to 'Destroy', cheese, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Cheese', new_cheese_path

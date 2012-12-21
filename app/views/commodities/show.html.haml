@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Id:
+  = @commodity.id
+%p
+  %b Product:
+  = @commodity.product_id
+%p
+  %b Time:
+  = @commodity.time
+%p
+  %b Price:
+  = @commodity.price
+%p
+  %b Name:
+  = @commodity.name
+
+= link_to 'Edit', edit_commodity_path(@commodity)
+\|
+= link_to 'Back', commodities_path
