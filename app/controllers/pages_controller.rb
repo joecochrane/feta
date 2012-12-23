@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
 
    def index
-	@choice = params[:part]
+	@choice = params[:part].to_i
 	# @cheeses = Cheese.where('Gitem = ?', params[:part])
 	@cheeses = Cheese.includes(:product).all
 

@@ -10,7 +10,7 @@
 	-if !(frompage == 'contact') 	
 		#stripselect
 			= form_tag index_path, :method => "post" do
-				= select_tag "part", options_for_select([ "French Menu Cookbook", "Plenty", "Ruhlman's Twenty" ], "French Menu Cookbook")
+				= select_tag(:part, options_for_select([["French Menu Cookbook",1], ["Plenty",2], ["Ruhlman's Twenty",3]],@choice ))
 				= submit_tag "Select", :name => nil
 			
 

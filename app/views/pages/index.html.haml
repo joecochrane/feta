@@ -1,16 +1,17 @@
 #header
 	= render :partial=>'layouts/header'
+-if (defined?(@choice)).nil?
+	-@choice = 1
 #strip
 	= render :partial=>'layouts/strip', :locals => {:frompage => "main" }
 -comp = []
 -namearray = []
 -notearray = []
 #content
-	-if (defined?(var)).nil?
-		-@choice = 'French Menu Cookbook'
-	-plist = Cheese.item[@choice]
+	-plist = Cheese.item[@choice.to_s]
 	-psplit = plist.split(",")
 	%span#leng.blank= psplit.length
+	
 	-for i in 0..psplit.length-1
 		-cprice = '' 
 		-ctime = ''
@@ -43,4 +44,3 @@
 		%span= namearray[i]
 		%span= notearray[i]
 		%br
-	

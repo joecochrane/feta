@@ -8,7 +8,7 @@ class Cheese < ActiveRecord::Base
 	belongs_to :product
 
 def self.item()
-	item = {"French Menu Cookbook" => "1,2,3", "Plenty" => "4,5,6", "Ruhlman's Twenty" => "7,8,9"}
+	item = {"1" => "1,2,3", "2" => "4,5,6", "3" => "7,8,9"}
 end
 
 

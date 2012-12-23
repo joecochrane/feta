@@ -102,7 +102,7 @@ def self.scrapeone()
 	#	puts 'Plenty half price ' + prices
 
 		@cheese = Cheese.new
-		url = "http://www.abebooks.com/servlet/SearchResults?isbn=0879235799&sts=t&x=58&y=15"
+		url = "http://www.abebooks.com/servlet/SearchResults?isbn=1452101248&sts=t&x=58&y=15"
 		doc = Nokogiri::HTML(open(url))
 		puts 'doc'
 		#puts doc

@@ -1,48 +1,16 @@
 #header
 	= render :partial=>'layouts/header'
+-if (defined?(@choice)).nil?
+	-@choice = 1
 #strip
 	= render :partial=>'layouts/strip', :locals => {:frompage => "main" }
 -comp = []
 -namearray = []
 -notearray = []
--if signed_in?
-	#content
-		%h1 4x4 Stainless Steel Butt
-		-if (defined?(var)).nil?
-			-@choice = '8000401225'
-		-plist = Cheese.item[@choice]
-		-psplit = plist.split(",")
-		%span#leng.blank= psplit.length
-		-for i in 0..psplit.length-1
-			-cprice = '' 
-			-ctime = ''
-			-company = ''
-			-note = ''
-			-name = ''
-			-@cheeses.each do |cheese|
-				-if cheese.product_id == psplit[i].to_i
-					-company = cheese.product.company
-					-note = cheese.product.note
-					-name = cheese.product.name
-					-cprice = cprice + cheese.price + ','
-					-ctime = ctime + cheese.time + ','
-			.blank
-				%span Got to Blank
-				%br
-				%span{:id => "choice_#{i}"}= psplit[i]
-				%span{:id => "company_#{i}"}= company
-				%span{:id => "cprice_#{i}"}= cprice.chomp(',')
-				%span{:id => "ctime_#{i}"}= ctime.chomp(',')
-			-comp[i] = company
-			-notearray[i] = note.to_s
-			-namearray[i] = name.to_s
-		#chart1
-			%span Placeholder1
-			%br
-		-for i in 0..psplit.length-1
-			%b
-				%span= comp[i]
-			%span= namearray[i]
-			%span= notearray[i]
-			%br
-		
+#content
+	%span= 'choice ' + @choice.to_s
+	
+	-plist = Cheese.item[@choice.to_s]
+	-psplit = plist.split(",")
+	%span= 'plist ' + plist
+	%span#leng.blank= psplit.length
