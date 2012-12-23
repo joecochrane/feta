@@ -1,6 +1,6 @@
 #header
 	= render :partial=>'layouts/header'
--if (defined?(@choice)).nil?
+-if @choice == 0
 	-@choice = 1
 #strip
 	= render :partial=>'layouts/strip', :locals => {:frompage => "main" }
@@ -8,7 +8,6 @@
 -namearray = []
 -notearray = []
 #content
-	-puts 'choice ' + @choice.to_s
 	-plist = Cheese.item[@choice.to_s]
 	-psplit = plist.split(",")
 	%span#leng.blank= psplit.length
